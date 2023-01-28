@@ -14,9 +14,20 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))        // 마우스 왼쪽 버튼 클릭하면
+        // 스와이프의 길이 구하기 (추가)
+        if (Input.GetMouseBottonDown(0))
         {
-            this.speed = 0.2f;                  // 처음 속도
+            // 마우스 '클릭' 좌표
+            this.startPos = Input.mousePosiiton;
+        }
+        else if (Input.GetMouseBottonUp(0))
+        {
+            // 마우스 '뗀' 좌표
+            Vector2 endPos = Input.mousePosition;
+            float swipeLength = endPos.x - this.startPos.x;
+
+            // 스와이프 길이 => 처음 속도 변경
+            this.speed = swipeLength / 500.0f;
         }
 
         transform.Translate(this.speed, 0, 0);  // 이동
