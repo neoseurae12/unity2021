@@ -15,12 +15,12 @@ public class CarController : MonoBehaviour
     void Update()
     {
         // 스와이프의 길이 구하기 (추가)
-        if (Input.GetMouseBottonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             // 마우스 '클릭' 좌표
-            this.startPos = Input.mousePosiiton;
+            this.startPos = Input.mousePosition;
         }
-        else if (Input.GetMouseBottonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             // 마우스 '뗀' 좌표
             Vector2 endPos = Input.mousePosition;
